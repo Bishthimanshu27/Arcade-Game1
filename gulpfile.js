@@ -3,8 +3,9 @@ const autoprefixer = require('gulp-autoprefixer');
 let cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const babel = require('gulp-babel');
+var concat = require('gulp-concat');
 
- 
+
 gulp.task('css', () =>
     gulp.src('src/css/*.css')
         .pipe(autoprefixer({
@@ -28,5 +29,6 @@ gulp.task('js', () =>
         .pipe(babel({
             presets: ['env']
         }))
+        .pipe(concat('main.js'))
         .pipe(gulp.dest('dist'))
 );
