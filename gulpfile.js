@@ -35,3 +35,8 @@ gulp.task('js', () =>
         .pipe(uglify())
         .pipe(gulp.dest('dist'))
 );
+
+gulp.task('default',['css','js','img'], () => {
+
+    gulp.watch('./src/css/*.css',['css'])
+})
